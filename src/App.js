@@ -24,12 +24,14 @@ class App extends Component {
     return shuffle(result)
   }
 
-  handleCardClick(card) {
-    console.log(card, 'clicked')
+  //Cette syntaxe permet de garantir le this dans cette methode
+  handleCardClick = card => {
+    console.log(card, 'clicked', this)
   }
 
   render() {
     const won = new Date().getSeconds() % 2 === 0
+    console.log(this.props)
     return (
       <div className="memory">
         <GuessCount guesses={0} />
